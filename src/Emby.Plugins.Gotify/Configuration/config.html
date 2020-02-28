@@ -130,7 +130,7 @@
 
                         return '<option value="' + user.Id + '">' + user.Name + '</option>';
 
-                    })).selectmenu('refresh').trigger('change');
+                    }));
 
                 });
 
@@ -160,10 +160,10 @@
 
                     gotifyConfig.UserId = userId;
 
-                    gotifyConfig.Enabled = $('#chkEnableGotify', form).checked();
-                    gotifyConfig.Token = $('#txtGotifyToken', form).val();
-                    gotifyConfig.Url = $('#txtGotifyUrl', form).val();
-                    gotifyConfig.Priority = $('#txtGotifyPriority', form).val();
+                    gotifyConfig.Enabled = $('#chkEnableGotify')[0].checked;
+                    gotifyConfig.Token = $('#txtGotifyToken').val();
+                    gotifyConfig.Url = $('#txtGotifyUrl').val();
+                    gotifyConfig.Priority = $('#txtGotifyPriority').val();
 
                     ApiClient.updatePluginConfiguration(pluginId, config).then(Dashboard.processPluginConfigurationUpdateResult);
                 });
